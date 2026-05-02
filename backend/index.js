@@ -1,11 +1,10 @@
 import express from 'express'
 import mongoose from 'mongoose'
 import ENV from './constant/index.js'
-import authRouter from './routes/auth.js'
 import cors from 'cors'
-import imageRoutes from './routes/image.js'
+import authRouter from './routes/auth.js'
 import analyticsRoutes from './routes/analytics.js'
-
+import imageRoutes from './routes/image.js'
 
 const app = express()
 
