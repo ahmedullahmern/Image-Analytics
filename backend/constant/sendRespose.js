@@ -1,0 +1,8 @@
+
+export default function sendResponse(res, status, data, error, msg) {
+    res.status(status).json({
+        error,
+        data: data,
+        msg
+    })
+}   
