@@ -3,7 +3,6 @@ import sendResponse from '../constant/sendRespose.js';
 
 const anyUserControllers = async (req, res) => {
     try {
-        console.log("req.user._id-->", req.user.id)
         const user = await User.findOne({
             _id: req.user.id
         })
