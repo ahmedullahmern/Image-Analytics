@@ -47,16 +47,16 @@ const SignupFormComp = () => {
                 </div>
 
                 <div className="max-w-md mx-auto lg:mx-0 w-full py-12">
-                    <h1 className="text-4xl font-bold text-slate-900 mb-2">Account Banao</h1>
-                    <p className="text-slate-500 mb-8">Free mein register karo aur shuru karo.</p>
+                    <h1 className="text-4xl font-bold text-slate-900 mb-2">Create Account</h1>
+                    <p className="text-slate-500 mb-8">Register for free and get started.</p>
 
                     <form onSubmit={handleSignup} className="space-y-5">
                         <div>
-                            <label className="block text-sm font-semibold text-slate-700 mb-2">Naam</label>
+                            <label className="block text-sm font-semibold text-slate-700 mb-2">Name</label>
                             <input
                                 type="text"
                                 name="name"
-                                placeholder="Tumhara naam"
+                                placeholder="Enter Your Name"
                                 className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
                                 required
                             />
@@ -105,7 +105,7 @@ const SignupFormComp = () => {
                     <div className="bg-white/10 backdrop-blur-xl border border-white/20 p-10 rounded-3xl max-w-lg">
                         <h2 className="text-4xl font-bold text-white mb-4">Shuru Karo Aaj!</h2>
                         <p className="text-blue-100 text-lg">
-                            Register karo aur apna personal image analytics dashboard paao.
+                            Register and get your personal image analytics dashboard.
                         </p>
                     </div>
                 </div>

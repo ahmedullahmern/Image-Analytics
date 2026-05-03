@@ -87,10 +87,10 @@ const DashboardComp = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {/* Bar Chart */}
                         <div className="bg-white rounded-2xl border border-slate-200 p-6">
-                            <h3 className="text-slate-700 font-semibold mb-4">Per Din Images</h3>
+                            <h3 className="text-slate-700 font-semibold mb-4">Per Day Images</h3>
                             {byDate.length === 0 ? (
                                 <div className="flex items-center justify-center h-48 text-slate-400">
-                                    Abhi koi data nahi!
+                                    This Day Image Not Found!
                                 </div>
                             ) : (
                                 <ResponsiveContainer width="100%" height={220}>
@@ -109,7 +109,7 @@ const DashboardComp = () => {
                             <h3 className="text-slate-700 font-semibold mb-4">Per Label Images</h3>
                             {byLabel.length === 0 ? (
                                 <div className="flex items-center justify-center h-48 text-slate-400">
-                                    Abhi koi data nahi!
+                                    Data Not Found!
                                 </div>
                             ) : (
                                 <ResponsiveContainer width="100%" height={220}>
@@ -175,10 +175,10 @@ const DashboardComp = () => {
                 {!filtering && filterDate && filteredImages.length === 0 && hasFiltered && (
                     <div className="text-center py-8 bg-slate-50 rounded-xl border border-slate-200">
                         <p className="text-slate-500 font-medium">
-                            {filterDate} 
+                            {filterDate}
                         </p>
                         <p className="text-slate-400 text-sm mt-1">
-                           This Date Image Not Found
+                            This Date Image Not Found
                         </p>
                     </div>
                 )}

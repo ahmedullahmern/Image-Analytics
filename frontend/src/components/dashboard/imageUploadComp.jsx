@@ -102,8 +102,8 @@ const ImagesComp = () => {
                     <p className="text-center text-blue-600 font-medium animate-pulse py-10">Loading...</p>
                 ) : images.length === 0 ? (
                     <div className="text-center py-20 text-slate-400">
-                        <p className="text-xl">Koi image nahi!</p>
-                        <p className="text-sm mt-2">Upar se upload karo</p>
+                        <p className="text-xl">Image Not Found!</p>
+                        <p className="text-sm mt-2">Upload Image</p>
                     </div>
                 ) : (
                     <>

@@ -55,7 +55,7 @@ const LoginFromComp = () => {
 
                 <div className="max-w-md mx-auto lg:mx-0 w-full py-12">
                     <h1 className="text-4xl font-bold text-slate-900 mb-2">Welcome Back</h1>
-                    <p className="text-slate-500 mb-8">Apni images aur analytics dekhne ke liye login karo.</p>
+                    <p className="text-slate-500 mb-8">Log in to view your images and analytics.</p>
 
                     <form onSubmit={handleLogin} className="space-y-5">
                         <div>
@@ -89,8 +89,8 @@ const LoginFromComp = () => {
                 </div>
 
                 <p className="text-slate-500 text-sm">
-                    Account nahi hai?{' '}
-                    <Link to="/register" className="text-blue-600 font-bold hover:underline">Register karo</Link>
+                    Create Account ?{' '}
+                    <Link to="/signup   " className="text-blue-600 font-bold hover:underline">Register</Link>
                 </p>
             </div>
 
@@ -103,7 +103,7 @@ const LoginFromComp = () => {
                     <div className="bg-white/10 backdrop-blur-xl border border-white/20 p-10 rounded-3xl max-w-lg">
                         <h2 className="text-4xl font-bold text-white mb-4">Image Analytics Platform</h2>
                         <p className="text-blue-100 text-lg mb-6">
-                            Apni images upload karo, labels lagao, aur powerful analytics dekho.
+                            Upload your images, add labels, and view powerful analytics.
                         </p>
                         <div className="grid grid-cols-3 gap-4 text-center">
                             {[
