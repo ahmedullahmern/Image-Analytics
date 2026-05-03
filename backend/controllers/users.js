@@ -3,10 +3,11 @@ import sendResponse from '../constant/sendRespose.js';
 
 const anyUserControllers = async (req, res) => {
     try {
+        console.log("req.user._id-->", req.user.id)
         const user = await User.findOne({
-            _id: req.user._id
+            _id: req.user.id
         })
-        return sendResponse(res, 200, user, false, "User Updated Successfully")
+        return sendResponse(res, 200, user, false, "User fetches Successfully")
     } catch (error) {
         return sendResponse(res, 500, null, true, error.message)
     }

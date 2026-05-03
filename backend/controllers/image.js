@@ -2,6 +2,7 @@ import { v2 as cloudinary } from 'cloudinary'
 import fsExtra from 'fs-extra'
 import Image from '../models/image.js'
 import ENV from '../constant/index.js'
+import sendResponse from '../constant/sendRespose.js'
 
 // Cloudinary config
 cloudinary.config({
@@ -37,14 +38,9 @@ export const uploadImage = async (req, res) => {
             publicId: result.public_id           // cloudinary id
         })
 
-        res.status(201).json({
-            success: true,
-            message: "Image upload successfully",
-            data: image
-        })
-
+        sendResponse(res, 201, image, false, "Image uploaded successfully")
     } catch (error) {
-        res.status(500).json({ success: false, message: error.message })
+        sendResponse(res, 500, null, true, error.message)
     }
 }
 
@@ -67,20 +63,17 @@ export const getMyImages = async (req, res) => {
             .skip(skip)
             .limit(limit)
 
-        res.status(200).json({
-            success: true,
-            data: {
-                images,
-                pagination: {
-                    total,           // total kitni images
-                    page,            // ab kaunsa page
-                    limit,           // ek page mein kitni
-                    totalPages: Math.ceil(total / limit)
-                }
+        sendResponse(res, 200, {
+            images,
+            pagination: {
+                total,
+                page,
+                limit,
+                totalPages: Math.ceil(total / limit)
             }
-        })
+        }, false, "Images fetched successfully")
 
     } catch (error) {
-        res.status(500).json({ success: false, message: error.message })
+        sendResponse(res, 500, null, true, error.message)
     }
 }

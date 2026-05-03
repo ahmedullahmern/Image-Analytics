@@ -1,3 +1,4 @@
+import sendResponse from '../constant/sendRespose.js'
 import Image from '../models/image.js'
 import mongoose from 'mongoose'
 // Total Images Count
@@ -7,12 +8,9 @@ export const getTotalCount = async (req, res) => {
         const userId = req.user.id
         const total = await Image.countDocuments({ userId })
 
-        res.status(200).json({
-            success: true,
-            data: { total }
-        })
+        sendResponse(res, 200, { total }, false, "Total count fetched successfully")
     } catch (error) {
-        res.status(500).json({ success: false, message: error.message })
+        sendResponse(res, 500, null, true, error.message)
     }
 }
 
@@ -47,10 +45,10 @@ export const getByDate = async (req, res) => {
         // Result aisa aayega:
         // [ {_id: "2024-01-15", count: 5}, {_id: "2024-01-16", count: 3} ]
 
-        res.status(200).json({ success: true, data })
+        sendResponse(res, 200, data, false, "Images by date fetched successfully")
 
     } catch (error) {
-        res.status(500).json({ success: false, message: error.message })
+        sendResponse(res, 500, null, true, error.message)
     }
 }
 
@@ -76,10 +74,9 @@ export const getByLabel = async (req, res) => {
         // Result aisa aayega:
         // [ {_id: "nature", count: 10}, {_id: "cars", count: 5} ]
 
-        res.status(200).json({ success: true, data })
-
+        sendResponse(res, 200, data, false, "Images by label fetched successfully")
     } catch (error) {
-        res.status(500).json({ success: false, message: error.message })
+        sendResponse(res, 500, null, true, error.message)
     }
 }
 
@@ -109,16 +106,19 @@ export const filterByDate = async (req, res) => {
                 $lt: endDate       // is se chota
             }
         })
-        if (images.length === 0) {
+        if (images?.length === 0) {
             return res.status(200).json({
                 success: true,
                 message: "Is date par koi images nahi mili",
                 data: []
             })
         }
-        res.status(200).json({ success: true, data: images })
-
+        sendResponse(res, 200, images, false,
+            images.length === 0
+                ? "No images found for this date"
+                : "Images filtered successfully"
+        )
     } catch (error) {
-        res.status(500).json({ success: false, message: error.message })
+        sendResponse(res, 500, null, true, error.message)
     }
 }
