@@ -1,7 +1,7 @@
 import axios from "axios";
 import Cookies from 'js-cookie';
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AppRoutes } from "../../constant/constant";
 import { toast } from 'react-toastify';
 import { AuthContext } from "../../context/AuthContext";
@@ -10,6 +10,8 @@ import ButtonLoader from "../loader/buttonLoader";
 const SignupFormComp = () => {
     const [isLoading, setIsLoading] = useState(false);
     const buttonLoader = ButtonLoader()
+    const navigate = useNavigate();
+
     const handleSignup = (e) => {
         e.preventDefault()
         setIsLoading(true)
@@ -26,8 +28,8 @@ const SignupFormComp = () => {
         axios.post(AppRoutes.signup, obj)
             .then((res) => {
                 setIsLoading(true)
-                toast.su
-                ccess("Your Account Created Successfully")
+                toast.success("Your Account Created Successfully")
+                navigate("/login")
             }).catch((err) => {
                 setIsLoading(false)
                 const errorMessage = err.response ? err?.response?.data?.msg : err.message;

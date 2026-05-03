@@ -33,7 +33,7 @@ const LoginFromComp = () => {
                 Cookies.set('token', res?.data?.data?.token)
                 setUser(res?.data?.data?.user)
                 toast.success("Login Successfully", { pauseOnHover: true })
-                // navigate("/dashboard")
+                navigate("/dashboard")
                 setIsLoading(false)
             })
             .catch((err) => {

@@ -195,7 +195,7 @@ API_SECRET=your_cloudinary_api_secret
 
 ### Base URL
 ```
-http://localhost:5000/api
+http://localhost:3000/api
 ```
 
 ### Response Format
