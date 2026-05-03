@@ -56,7 +56,6 @@ const ImagesComp = () => {
             <NavbarComp />
             <div className="max-w-6xl mx-auto p-6">
 
-                {/* Upload Form */}
                 <div className="bg-white rounded-2xl border border-slate-200 p-6 mb-6">
                     <h3 className="font-semibold text-slate-700 mb-4">Image Upload </h3>
                     <form onSubmit={handleUpload} className="flex flex-wrap gap-3 items-end">
@@ -90,14 +89,12 @@ const ImagesComp = () => {
                     </form>
                 </div>
 
-                {/* Error */}
                 {error && (
                     <div className="bg-red-50 border border-red-200 text-red-600 p-4 rounded-xl mb-4">
                         {error}
                     </div>
                 )}
 
-                {/* Images */}
                 {loading ? (
                     <p className="text-center text-blue-600 font-medium animate-pulse py-10">Loading...</p>
                 ) : images.length === 0 ? (
@@ -126,7 +123,6 @@ const ImagesComp = () => {
                             ))}
                         </div>
 
-                        {/* Pagination */}
                         <div className="flex justify-center gap-2 mt-8">
                             <button
                                 onClick={() => setPage(p => p - 1)}

@@ -15,21 +15,13 @@ const storage = multer.diskStorage({
     }
 })
 
-// const fileFilter = (req, file, cb) => {
-//     const allowed = ['image/jpeg', 'image/png', 'image/webp', 'image/jfif']
-//     if (allowed.includes(file.mimetype)) {
-//         cb(null, true)   // allow karo
-//     } else {
-//         cb(new Error('Sirf JPG, PNG, WEBP images allowed hain!'), false)
-//     }
-// }
+
 
 const upload = multer({
     storage: storage
 })
 
 
-// Dono routes protected hain
 router.post('/upload', anyAuthMiddleware, upload.single('image'), uploadImage)
 router.get('/', anyAuthMiddleware, getMyImages)
 

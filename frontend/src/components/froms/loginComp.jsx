@@ -44,7 +44,7 @@ const LoginFromComp = () => {
     };
     return (
         <div className="flex flex-col lg:flex-row min-h-screen bg-white">
-            {/* Left: Form */}
+
             <div className="flex flex-col justify-between w-full lg:w-[45%] p-8 lg:p-16">
                 <div className="flex items-center gap-2">
                     <div className="w-8 h-8 bg-blue-600 rounded flex items-center justify-center">
@@ -94,7 +94,6 @@ const LoginFromComp = () => {
                 </p>
             </div>
 
-            {/* Right: Visual */}
             <div className="hidden lg:flex w-[55%] bg-blue-600 relative overflow-hidden items-center justify-center">
                 <div className="absolute inset-0 opacity-20">
                     <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2064&auto=format&fit=crop" className="w-full h-full object-cover" />

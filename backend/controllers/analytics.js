@@ -1,7 +1,6 @@
 import sendResponse from '../constant/sendRespose.js'
 import Image from '../models/image.js'
 import mongoose from 'mongoose'
-// Total Images Count
 
 export const getTotalCount = async (req, res) => {
     try {
@@ -14,18 +13,15 @@ export const getTotalCount = async (req, res) => {
     }
 }
 
-// Har Din Kitni Images (Graph ke liye)
 export const getByDate = async (req, res) => {
     try {
         const userId = req.user.id
         const data = await Image.aggregate([
-            // Step 1: Sirf is user ki images lo
             {
                 $match: {
                     userId: new mongoose.Types.ObjectId(userId) // 🔥 FIX
                 }
             },
-            // Step 2: Date ke hisaab se group karo
             {
                 $group: {
                     _id: {
@@ -38,13 +34,10 @@ export const getByDate = async (req, res) => {
                 }
             },
 
-            // Step 3: Date se sort karo
             { $sort: { _id: 1 } }
         ])
 
-        // Result aisa aayega:
-        // [ {_id: "2024-01-15", count: 5}, {_id: "2024-01-16", count: 3} ]
-
+     
         sendResponse(res, 200, data, false, "Images by date fetched successfully")
 
     } catch (error) {
@@ -52,7 +45,6 @@ export const getByDate = async (req, res) => {
     }
 }
 
-// Har Label Mein Kitni Images
 export const getByLabel = async (req, res) => {
     try {
         const userId = req.user.id
@@ -65,15 +57,13 @@ export const getByLabel = async (req, res) => {
             },
             {
                 $group: {
-                    _id: "$label",     // label se group karo
-                    count: { $sum: 1 } // count karo
+                    _id: "$label",    
+                    count: { $sum: 1 } 
                 }
             }
         ])
 
-        // Result aisa aayega:
-        // [ {_id: "nature", count: 10}, {_id: "cars", count: 5} ]
-
+       
         sendResponse(res, 200, data, false, "Images by label fetched successfully")
     } catch (error) {
         sendResponse(res, 500, null, true, error.message)

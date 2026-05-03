@@ -78,14 +78,13 @@ const DashboardComp = () => {
                         </div>
                     )}
 
-                    {/* Total Count */}
                     <div className="bg-white rounded-2xl border border-slate-200 p-8 mb-6 text-center">
                         <p className="text-slate-500 text-sm font-medium uppercase tracking-wider mb-2">Total Images</p>
                         <p className="text-7xl font-bold text-blue-600">{total}</p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        {/* Bar Chart */}
+                       
                         <div className="bg-white rounded-2xl border border-slate-200 p-6">
                             <h3 className="text-slate-700 font-semibold mb-4">Per Day Images</h3>
                             {byDate.length === 0 ? (
@@ -104,7 +103,6 @@ const DashboardComp = () => {
                             )}
                         </div>
 
-                        {/* Pie Chart */}
                         <div className="bg-white rounded-2xl border border-slate-200 p-6">
                             <h3 className="text-slate-700 font-semibold mb-4">Per Label Images</h3>
                             {byLabel.length === 0 ? (
@@ -129,7 +127,6 @@ const DashboardComp = () => {
                 </div>
             </div>
 
-            {/* Dashboard mein graphs ke neeche add karo */}
             <div className="bg-white rounded-2xl border border-slate-200 p-6 mt-6">
                 <h3 className="font-semibold text-slate-700 mb-4">Filter By Date</h3>
                 <div className="flex gap-3 items-center mb-4">
@@ -138,8 +135,8 @@ const DashboardComp = () => {
                         value={filterDate}
                         onChange={(e) => {
                             setFilterDate(e.target.value)
-                            setFilteredImages([])  // ← date change pe reset karo
-                            setFilterError('')     // ← error bhi reset
+                            setFilteredImages([]) 
+                            setFilterError('') 
                         }}
                         className="border border-slate-200 p-2.5 rounded-lg outline-none focus:ring-2 focus:ring-blue-500"
                     />
@@ -151,7 +148,6 @@ const DashboardComp = () => {
                         {filtering ? 'Filtering...' : 'Filter'}
                     </button>
 
-                    {/* Clear button */}
                     {filterDate && (
                         <button
                             onClick={() => {
@@ -166,12 +162,10 @@ const DashboardComp = () => {
                     )}
                 </div>
 
-                {/* Filtering loading */}
                 {filtering && (
                     <p className="text-blue-500 text-sm animate-pulse">Filter ho raha hai...</p>
                 )}
 
-                {/* Koi image nahi us din */}
                 {!filtering && filterDate && filteredImages.length === 0 && hasFiltered && (
                     <div className="text-center py-8 bg-slate-50 rounded-xl border border-slate-200">
                         <p className="text-slate-500 font-medium">
@@ -183,7 +177,6 @@ const DashboardComp = () => {
                     </div>
                 )}
 
-                {/* Results */}
                 {filteredImages.length > 0 && (
                     <>
                         <p className="text-sm text-slate-500 mb-3">
